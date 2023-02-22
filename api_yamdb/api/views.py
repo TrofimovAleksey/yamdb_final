@@ -1,3 +1,11 @@
+from api.filters import TitleFilter
+from api.permissions import (IsAdminOrReadOnlyPermission, IsAdminOrSuperuser,
+                             IsAuthorAdminModeratorOrReadOnly)
+from api.serializers import (CategorySerializer, CodeSerializer,
+                             CommentSerializer, GenreSerializer, MeSerializer,
+                             ReadTitleSerializer, ReviewSerializer,
+                             TokenSerializer, UserSerializer,
+                             WriteTitleSerializer)
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -10,18 +18,10 @@ from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
-
-from api.filters import TitleFilter
-from api.permissions import (IsAdminOrReadOnlyPermission, IsAdminOrSuperuser,
-                             IsAuthorAdminModeratorOrReadOnly)
-from api.serializers import (CategorySerializer, CodeSerializer,
-                             CommentSerializer, GenreSerializer, MeSerializer,
-                             ReadTitleSerializer, ReviewSerializer,
-                             TokenSerializer, UserSerializer,
-                             WriteTitleSerializer)
-from api_yamdb.settings import EMAIL_HOST_USER
 from reviews.models import Category, Genre, Title
 from users.models import User
+
+from api_yamdb.settings import EMAIL_HOST_USER
 
 
 class ListCreateDeleteViewSet(

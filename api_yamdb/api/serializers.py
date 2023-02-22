@@ -1,7 +1,6 @@
+from api.validators import validate_year
 from django.core.validators import RegexValidator
 from rest_framework import serializers
-
-from api.validators import validate_year
 from reviews.models import Category, Comment, Genre, Review, Title
 from users.models import User
 
